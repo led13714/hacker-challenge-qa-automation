@@ -8,7 +8,7 @@ export class finalPage {
     }
 
     restartButton() {
-        cy.get('section > p')
+        cy.get('.button-style-link')
         .contains('Restart challenge');
     }
 

@@ -1,8 +1,5 @@
 /// <reference types="cypress" />
 
-import "cypress-localstorage-commands";
-
-
 import { startPage } from "../page-objects/start_page";
 import { firstPage } from "../page-objects/first_challenge";
 import { secondPage } from "../page-objects/second_challenge";
@@ -63,17 +60,13 @@ describe('Hacking Challenges Spree', () => {
         fourthpage.visibleLink().click()
     })
 
-    it('Fifth Challenge', () => {
+    // Sixth challenge wasn't working separately due to the separate 'it' block
+    // that's why had to combine it.
+    it('Fifth & Sixth Challenge', () => {
         fifthpage.validateChallengeFifthHeading()
         fifthpage.verifyChallengeText()
         fifthpage.updateURL()
-    })
-
-    it('Sixth Challenge', () => {
-        cy.getLocalStorage('password').then((value) => {
-            cy.log('Extracted Value:', value);
-            cy.get('body > div.main > section > div > div.form > input').type(value);
-        });
+        sixthpage.getValueFromLocalStorage()
         sixthpage.clickStorageSubmit()
     })
 
@@ -81,12 +74,13 @@ describe('Hacking Challenges Spree', () => {
         seventhpage.validateChallengeFifthHeading()
         seventhpage.clickThreeTimes()
         seventhpage.enterPasswordFromConsole()
+        seventhpage.clickSubmit()
     })
 
     it('Eighth Challenge', () => {
         eighthpage.validateChallengeFifthHeading()
         eighthpage.removeBlocker()
-        eighthpage.nextChallengeLink()
+        eighthpage.nextChallengeLink().click()
     })
 
     it('Ninth Challenge', () => {

@@ -12,7 +12,7 @@ export class eighthPage {
     }
 
     nextChallengeLink() {
-        cy.get('.button-style-link')
+      return  cy.get('.button-style-link')
         .contains('Go to the next challenge')
     }
 }
