@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import "cypress-localstorage-commands";
 
 export class sixthPage {
 
@@ -7,8 +8,8 @@ export class sixthPage {
         .should('include.text','Challenge #6: Find the password in Local Storage')
     }
 
-    getValueFromLocalStorage() {
-        cy.getLocalStorage('password').then((value) => {
+    getValueFromLocalStorage(value) {
+       return cy.getLocalStorage('password').then((value) => {
             cy.log('Extracted Value:', value);
             cy.get('body > div.main > section > div > div.form > input').type(value);
         });

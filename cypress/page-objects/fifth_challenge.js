@@ -13,6 +13,7 @@ export class fifthPage {
     }
 
     updateURL() {
+        cy.get('.button-style-link').invoke('attr', 'data-next-animal').as('animalname')
         cy.get('@animalname').then((value) => {
             cy.log('Extracted Animal Name:', value);
             const correctUrl = "/challenges/normal/" + value + ".html";

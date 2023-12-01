@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import "cypress-localstorage-commands";
+
+
 import { startPage } from "../page-objects/start_page";
 import { firstPage } from "../page-objects/first_challenge";
 import { secondPage } from "../page-objects/second_challenge";
@@ -58,7 +61,46 @@ describe('Hacking Challenges Spree', () => {
         fourthpage.removeHiddenFromClass()
         fourthpage.verifyText()
         fourthpage.visibleLink().click()
-
     })
 
+    it('Fifth Challenge', () => {
+        fifthpage.validateChallengeFifthHeading()
+        fifthpage.verifyChallengeText()
+        fifthpage.updateURL()
+    })
+
+    it('Sixth Challenge', () => {
+        cy.getLocalStorage('password').then((value) => {
+            cy.log('Extracted Value:', value);
+            cy.get('body > div.main > section > div > div.form > input').type(value);
+        });
+        sixthpage.clickStorageSubmit()
+    })
+
+    it('Seventh Challenge', () => {
+        seventhpage.validateChallengeFifthHeading()
+        seventhpage.clickThreeTimes()
+        seventhpage.enterPasswordFromConsole()
+    })
+
+    it('Eighth Challenge', () => {
+        eighthpage.validateChallengeFifthHeading()
+        eighthpage.removeBlocker()
+        eighthpage.nextChallengeLink()
+    })
+
+    it('Ninth Challenge', () => {
+        ninthpage.validateChallengeFifthHeading()
+        ninthpage.enterPasswordAndClick()
+    })
+
+    it('Tenth Challenge', () => {
+        tenthpage.validateChallengeFifthHeading()
+        tenthpage.getPasswordFromNetworkRequest()
+    })
+
+    it('Final Page', () => {
+        finalpage.finalMessage()
+        finalpage.restartButton()
+    })
 })
