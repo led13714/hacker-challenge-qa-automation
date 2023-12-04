@@ -1,1 +1,7 @@
 *.DS_Store
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
+cypress/page-objects/login-page.js
+cypress/integration/login.spec.js

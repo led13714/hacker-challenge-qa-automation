@@ -1,0 +1,26 @@
+{
+  "name": "cypress-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress-headless": "cypress run",
+    "cypress-headed": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^4.4.0",
+    "cypress-localstorage-commands": "^2.2.5"
+  },
+  "devDependencies": {
+    "cypress-log-to-output": "^1.1.2",
+    "cypress-multi-reporters": "^1.2.4",
+    "mocha": "^7.1.1",
+    "mochawesome": "^6.1.0",
+    "mochawesome-merge": "^4.0.3",
+    "mochawesome-report-generator": "^5.1.0",
+    "rimraf": "^3.0.2"
+  }
+}

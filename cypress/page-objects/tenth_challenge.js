@@ -17,6 +17,9 @@ export class tenthPage {
               cy.get('.network-password').type(respBody)
             }
           )
-          cy.get('.network-btn').click()
     }
+
+    clickOnNetworkChallengeSubmit() {
+      cy.get('.network-btn').click()
+  }
 }

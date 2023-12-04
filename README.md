@@ -20,3 +20,13 @@ Or use Python 3 `python3 -m http.server` to run the hacker-challenge.
 
 - NOTE: Playwright test execution includes the local start of the webserver, see playwright.config.ts.
 
+## Execute Cypress Tests
+
+- Install the dependencies using `npm install`
+- To execute tests headed or headlessley using the following commands:
+
+```shell
+    npm run cypress-headed              # run all tests on headed browsers
+    npm run cypress-headedless          # run all tests on electron headlessly
+    npx cypress open  --browser=chrome  # run the tests on headed chrome browser
+```

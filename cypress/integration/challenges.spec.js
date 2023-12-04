@@ -66,6 +66,7 @@ describe('Hacking Challenges Spree', () => {
         fifthpage.validateChallengeFifthHeading()
         fifthpage.verifyChallengeText()
         fifthpage.updateURL()
+        fifthpage.clickOnUpdateLink()
         sixthpage.getValueFromLocalStorage()
         sixthpage.clickStorageSubmit()
     })
@@ -78,23 +79,24 @@ describe('Hacking Challenges Spree', () => {
     })
 
     it('Eighth Challenge', () => {
-        eighthpage.validateChallengeFifthHeading()
+        eighthpage.validateChallengeEighthHeading()
         eighthpage.removeBlocker()
         eighthpage.nextChallengeLink().click()
     })
 
     it('Ninth Challenge', () => {
         ninthpage.validateChallengeFifthHeading()
+        ninthpage.makePasswordImageVisible().should('be.visible')
         ninthpage.enterPasswordAndClick()
     })
 
     it('Tenth Challenge', () => {
         tenthpage.validateChallengeFifthHeading()
         tenthpage.getPasswordFromNetworkRequest()
+        tenthpage.clickOnNetworkChallengeSubmit()
     })
 
     it('Final Page', () => {
         finalpage.finalMessage()
-        finalpage.restartButton()
     })
 })

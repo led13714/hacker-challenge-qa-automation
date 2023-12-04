@@ -2,7 +2,7 @@
 
 export class eighthPage {
 
-    validateChallengeFifthHeading() {
+    validateChallengeEighthHeading() {
         cy.get('section > h2')
         .should('include.text','Challenge #8: Move the blocker')
     }

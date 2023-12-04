@@ -17,9 +17,12 @@ export class fifthPage {
         cy.get('@animalname').then((value) => {
             cy.log('Extracted Animal Name:', value);
             const correctUrl = "/challenges/normal/" + value + ".html";
-    
-            cy.visit('/'+ correctUrl)    
-            //cy.get('input.hidden-password').type(value);
+            cy.get('.button-style-link')
+            .invoke('attr', 'href', correctUrl);
         });
+    }
+
+    clickOnUpdateLink() {
+        cy.get('.button-style-link').click()
     }
 }
