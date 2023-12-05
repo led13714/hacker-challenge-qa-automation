@@ -20,6 +20,13 @@ Or use Python 3 `python3 -m http.server` to run the hacker-challenge.
 
 - NOTE: Playwright test execution includes the local start of the webserver, see playwright.config.ts.
 
+## Execute Playwright  Tests
+
+- Go to playwright directory
+- Install the dependencies using `npm ci`
+- Start server on localhost, see above 
+- To execute tests run scripts from package.json
+
 ## Execute Cypress Tests
 
 - Go to cypress-automation directory

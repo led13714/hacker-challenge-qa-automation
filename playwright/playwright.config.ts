@@ -47,14 +47,43 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1400, height: 900 },
+      },
+    },
+
+    {
+      name: "firefox",
+      use: {
+        ...devices["Desktop Firefox"],
+        viewport: { width: 1400, height: 900 },
+      },
+    },
+
+    {
+      name: "webkit",
+      use: {
+        ...devices["Desktop Safari"],
+        viewport: { width: 1400, height: 900 },
+      },
+    },
+
+    {
+      name: "edge",
+      use: {
+        // Supported Microsoft Edge channels are: msedge, msedge-beta, msedge-dev, msedge-canary
+        channel: "msedge",
+        viewport: { width: 1400, height: 900 },
+      },
     },
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'cd .. && python3 -m http.server',
-    url: 'http://localhost:8000',
-    reuseExistingServer: !process.env.CI,
-  },
+  // INFO: This could be used but spinning up the server this way counts towards test execution time!
+  // webServer: {
+  //   command: 'cd .. && python3 -m http.server',
+  //   url: 'http://localhost:8000',
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });
