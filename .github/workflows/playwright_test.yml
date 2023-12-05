@@ -1,4 +1,4 @@
-name: Test execution
+name: Playwright Tests
 on:
   workflow_dispatch:
   pull_request:
@@ -7,9 +7,6 @@ jobs:
   playwright-test:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: playwright
     steps:
       - uses: actions/checkout@v3
 
@@ -23,8 +20,11 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Start hacker challenge server locally
+        run: python3 -m http.server &
+
       - name: Run Playwright tests
-        run: npm run test
+        run: npm run test:ci
 
       - uses: actions/upload-artifact@v3
         if: always()
@@ -32,23 +32,3 @@ jobs:
           name: playwright-report
           path: playwright/playwright-report/
           retention-days: 30
-
-# your test execution as extra job:
-# xyz-test:
-#   timeout-minutes: 10
-#   runs-on: ubuntu-latest
-#   defaults:
-#     run:
-#       working-directory: TBD
-#   steps:
-#   - uses: actions/checkout@v3
-
-#   - uses: actions/setup-node@v3
-#     with:
-#       node-version: 18
-
-#   - name: Install dependencies
-#     run: npm ci
-
-#   - name: Run XYZ tests
-#     run: npm run test
