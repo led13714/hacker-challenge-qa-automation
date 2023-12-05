@@ -16,8 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Start hacker challenge server locally
-      #   run: python3 -m http.server &
+      - name: Start hacker challenge server locally
+        run: python3 -m http.server &
 
       # - name: debug directory
       #   run: pwd
@@ -25,8 +25,8 @@ jobs:
       - name: Cypress run tests
         uses: cypress-io/github-action@v6 # will take care of running `npm ci`
         with:
-          start: cd .. & python3 -m http.server
-          wait-on: 'http://localhost:8000'
+          # start: cd .. & python3 -m http.server
+          # wait-on: 'http://localhost:8000'
           command: npm cypress run --browser chrome
           working-directory: cypress # needs to be configured here, see https://github.com/cypress-io/github-action#working-directory
 
