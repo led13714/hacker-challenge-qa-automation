@@ -7,9 +7,9 @@ jobs:
   cypress-run:
     timeout-minutes: 10
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: cypress
+    # defaults:
+    #   run:
+    #     working-directory: cypress
 
     name: Cypress workflow
     steps:
@@ -28,7 +28,7 @@ jobs:
           start: cd .. & python3 -m http.server
           wait-on: 'http://localhost:8000'
           command: npm cypress run --browser chrome
-          # working-directory: cypress # needs to be configured here, see https://github.com/cypress-io/github-action#working-directory
+          working-directory: cypress # needs to be configured here, see https://github.com/cypress-io/github-action#working-directory
 
       - name: Upload test report
         uses: actions/upload-artifact@v3
