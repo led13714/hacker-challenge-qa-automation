@@ -14,16 +14,19 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install Playwright dependencies
+        working-directory: playwright
         run: npm ci
 
       - name: Install Playwright Browsers
+        working-directory: playwright
         run: npx playwright install --with-deps
 
       - name: Start hacker challenge server locally
         run: python3 -m http.server &
 
       - name: Run Playwright tests
+        working-directory: playwright
         run: npm run test:ci
 
       - uses: actions/upload-artifact@v3
