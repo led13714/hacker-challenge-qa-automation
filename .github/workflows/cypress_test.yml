@@ -7,6 +7,9 @@ jobs:
   cypress-run:
     timeout-minutes: 10
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: cypress
 
     name: Cypress workflow
     steps:
@@ -14,12 +17,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start hacker challenge server locally
-        run: python3 -m http.server &
+        run: cd .. & python3 -m http.server &
 
       - name: Cypress run tests
         uses: cypress-io/github-action@v6 # will take care of running `npm ci`
         with:
-          command: cd cypress & npm cypress run --browser chrome
+          command: npm cypress run --browser chrome
 
       - name: Upload test report
         uses: actions/upload-artifact@v3
