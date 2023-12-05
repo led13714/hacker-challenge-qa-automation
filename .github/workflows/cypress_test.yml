@@ -7,9 +7,6 @@ jobs:
   cypress-run:
     timeout-minutes: 10
     runs-on: ubuntu-22.04
-    # defaults:
-    #   run:
-    #     working-directory: cypress
 
     name: Cypress workflow
     steps:
@@ -18,7 +15,6 @@ jobs:
 
       - name: Start hacker challenge server locally
         run: python3 -m http.server &
-
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -32,18 +28,6 @@ jobs:
       - name: Run Cypress tests
         working-directory: cypress-automation
         run: npm run cypress:ci
-
-
-      # - name: debug directory
-      #   run: pwd
-      
-      # - name: Cypress run tests
-      #   uses: cypress-io/github-action@v6 # will take care of running `npm ci`
-      #   with:
-          # start: cd .. & python3 -m http.server
-          # wait-on: 'http://localhost:8000'
-          # command: npm run cypress:ci  
-          # working-directory: cypress # needs to be configured here, see https://github.com/cypress-io/github-action#working-directory
 
       - name: Upload test report
         uses: actions/upload-artifact@v3
