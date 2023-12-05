@@ -22,6 +22,7 @@ Or use Python 3 `python3 -m http.server` to run the hacker-challenge.
 
 ## Execute Cypress Tests
 
+- Go to cypress-automation directory
 - Install the dependencies using `npm ci`
 - Start server on localhost, see above 
 - To execute tests headed or headlessley using the following commands:

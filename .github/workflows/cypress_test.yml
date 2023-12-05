@@ -26,11 +26,11 @@ jobs:
           node-version: 18
 
       - name: Install Cypress dependencies
-        working-directory: cypress
+        working-directory: cypress-automation
         run: npm ci
 
       - name: Run Cypress tests
-        working-directory: cypress
+        working-directory: cypress-automation
         run: npm run cypress:ci
 
 
