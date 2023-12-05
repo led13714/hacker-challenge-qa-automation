@@ -1,9 +1,19 @@
 *.DS_Store
 .vscode
 node_modules
-cypress/results/*
-cypress/reports/*
-cypress/screenshots/*
-cypress/videos/*
-cypress/page-objects/login-page.js
-cypress/integration/login.spec.js
+
+# Cypress:
+cypress-automation/node_modules
+cypress-automation/cypress/results/*
+cypress-automation/cypress/reports/*
+cypress-automation/cypress/screenshots/*
+cypress-automation/cypress/videos/*
+cypress-automation/cypress/page-objects/login-page.js
+cypress-automation/cypress/integration/login.spec.js
+
+# Playwright
+playwright/node_modules/
+playwright/test-results/
+playwright/playwright-report/
+playwright/blob-report/
+/playwright/.cache/
