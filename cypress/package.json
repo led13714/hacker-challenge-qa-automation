@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:ci": "cypress run --browser chrome --spec 'integration/*'",
+    "cypress:ci": "cypress run --headless --browser chrome --spec 'integration/*.js'",
     "cypress-headless": "cypress run",
     "cypress-headed": "cypress open"
   },
