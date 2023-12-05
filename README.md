@@ -22,11 +22,12 @@ Or use Python 3 `python3 -m http.server` to run the hacker-challenge.
 
 ## Execute Cypress Tests
 
-- Install the dependencies using `npm install`
+- Install the dependencies using `npm ci`
+- Start server on localhost, see above 
 - To execute tests headed or headlessley using the following commands:
 
 ```shell
     npm run cypress-headed              # run all tests on headed browsers
-    npm run cypress-headedless          # run all tests on electron headlessly
+    npm run cypress-headless            # run all tests on electron headlessly
     npx cypress open  --browser=chrome  # run the tests on headed chrome browser
 ```

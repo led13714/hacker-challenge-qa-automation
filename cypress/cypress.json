@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://hacker-challenge.netlify.app/",
+    "baseUrl": "http://localhost:8000/",
     "watchForFileChanges": false,
     "video": false,
     "defaultCommandTimeout": 20000,
