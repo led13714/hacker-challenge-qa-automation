@@ -5,6 +5,7 @@ on:
       branches: [main]
 jobs:
   cypress-run:
+    timeout-minutes: 10
     runs-on: ubuntu-22.04
 
     name: Cypress workflow
