@@ -34,5 +34,5 @@ jobs:
         if: always()
         with:
           name: cypress-report
-          path: cypress/reports/mocha/
+          path: cypress-automation/cypress/reports/mocha/
           retention-days: 30
