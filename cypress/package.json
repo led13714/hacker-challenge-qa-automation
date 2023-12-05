@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cypress-chrome": "cypress run --browser chrome",
     "cypress-headless": "cypress run",
     "cypress-headed": "cypress open"
   },

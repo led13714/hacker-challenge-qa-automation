@@ -27,7 +27,7 @@ jobs:
         with:
           # start: cd .. & python3 -m http.server
           # wait-on: 'http://localhost:8000'
-          command: npm cypress run --browser chrome
+          command: npm run cypress-chrome  
           working-directory: cypress # needs to be configured here, see https://github.com/cypress-io/github-action#working-directory
 
       - name: Upload test report
