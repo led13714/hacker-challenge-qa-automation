@@ -68,6 +68,15 @@ export default defineConfig({
         viewport: { width: 1400, height: 900 },
       },
     },
+
+    {
+      name: "edge",
+      use: {
+        // Supported Microsoft Edge channels are: msedge, msedge-beta, msedge-dev, msedge-canary
+        channel: "msedge",
+        viewport: { width: 1400, height: 900 },
+      },
+    },
   ],
 
   /* Run your local dev server before starting the tests */
