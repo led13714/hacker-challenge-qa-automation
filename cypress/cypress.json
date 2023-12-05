@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost:8000/",
+    "specPattern": "cypress/integration/*.js",
     "watchForFileChanges": false,
     "video": false,
     "defaultCommandTimeout": 20000,
