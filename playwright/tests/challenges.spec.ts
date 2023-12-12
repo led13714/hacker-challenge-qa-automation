@@ -223,10 +223,12 @@ test.describe("Hacker challenge speedrun", () => {
     // https://github.com/tesseract-ocr/tesseract
     const { data: { text } } = await (await worker).recognize('revealed_image_with_password.png');
     console.log('### Recognized text on website:\n', text);
+    expect(text).not.toEqual('')
 
     // extract the password from the text
     const extractedPassword = getStatedPasswordIn(text)
     console.log('### Extracted password using OCR:\n', extractedPassword);
+    expect(extractedPassword).not.toEqual('')
     
     // fill in password and proceed
     await challengeNinePage.passwordInput.fill(extractedPassword);
