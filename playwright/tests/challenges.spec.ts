@@ -1,3 +1,4 @@
+import { createWorker } from 'tesseract.js';
 import { test, expect } from "@playwright/test";
 import { StartPage } from "../pages/start-page";
 import { ChallengeOne } from "../pages/challenge-one-page";
@@ -203,7 +204,9 @@ test.describe("Hacker challenge speedrun", () => {
   test("Nineth challenge", async ({ page }) => {
     challengeNinePage = new ChallengeNine(page);
     challengeTenPage = new ChallengeTen(page);
+    const worker = createWorker();
 
+    await (await worker).load();
     await challengeNinePage.openPage();
     await expect(challengeNinePage.heading).toBeVisible();
 
@@ -213,8 +216,22 @@ test.describe("Hacker challenge speedrun", () => {
     });
     await expect(challengeNinePage.passwordImage).toBeVisible();
 
+    // take screenshot from website
+    await page.screenshot({ path: 'revealed_image_with_password.png' });
+
+    // use Tesseract worker to recognize the text that is displayed on the website
+    // https://github.com/tesseract-ocr/tesseract
+    const { data: { text } } = await (await worker).recognize('revealed_image_with_password.png');
+    console.log('### Recognized text on website:\n', text);
+    expect(text).not.toEqual('')
+
+    // extract the password from the text
+    const extractedPassword = getStatedPasswordIn(text)
+    console.log('### Extracted password using OCR:\n', extractedPassword);
+    expect(extractedPassword).not.toEqual('')
+    
     // fill in password and proceed
-    await challengeNinePage.passwordInput.fill(challengeNinePage.password);
+    await challengeNinePage.passwordInput.fill(extractedPassword);
     await challengeNinePage.submit.click();
 
     await expect(challengeTenPage.heading).toBeVisible();
@@ -240,3 +257,16 @@ test.describe("Hacker challenge speedrun", () => {
     await expect(completePage.congratulations).toBeVisible();
   });
 });
+
+function getStatedPasswordIn(text: string) {
+  const regex = /the password is\s+(.+)/i;
+  const match = text.match(regex);
+
+  if (match && match[1]) {
+    const wordsAfterPassword = match[1].trim().split(/\s+/);
+    const resultString = wordsAfterPassword.join(' ');
+    return resultString;
+  }
+
+  return '';
+}

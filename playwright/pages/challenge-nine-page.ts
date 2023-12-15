@@ -6,7 +6,6 @@ export class ChallengeNine {
   readonly passwordInput = this.page.getByPlaceholder("Enter password");
   readonly submit = this.page.getByRole("button", { name: "Submit" });
   readonly passwordImage = this.page.locator('div.password-img');
-  readonly password = "hocus pocus" // is written on the image, can't be read automatically from image without OCR processing
 
   constructor(public readonly page: Page) {}
 
