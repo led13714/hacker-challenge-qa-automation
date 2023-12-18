@@ -17,3 +17,5 @@ playwright/test-results/
 playwright/playwright-report/
 playwright/blob-report/
 /playwright/.cache/
+eng.traineddata
+revealed_image_with_password.png
